@@ -47,6 +47,16 @@ class LCD_1inch28(framebuf.FrameBuffer):
         self.green =   0x001f
         self.blue  =   0xf800
         self.white =   0xffff
+        self.black =   0x0000
+        
+        #define BLACK 0x0000
+        #define BLUE 0x001F
+        #define RED 0xF800
+        #define GREEN 0x07E0
+        #define CYAN 0x07FF
+        #define MAGENTA 0xF81F
+        #define YELLOW 0xFFE0
+        #define WHITE 0xFFFF
         
         self.fill(self.white)
         self.show()
@@ -489,7 +499,7 @@ def drawSecond( sec ):
     n12x = 80
     n12y = 10
     newX,newY = rotate( n12x, n12y, deg)
-    LCD.line(screenCenterX, screenCenterY, newX, newY, (LCD.white))
+    LCD.line(screenCenterX, screenCenterY, newX, newY, (LCD.red))
 
 def drawMinute( minute ):
     deg = minute * 6
